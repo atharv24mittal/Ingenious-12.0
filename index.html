@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Traffic Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        main {
+            padding: 20px;
+        }
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .option {
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .option:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Smart Traffic Management System</h1>
+    </header>
+    <main>
+        <div class="options-container">
+            <div class="option" onclick="navigateTo('speedometer.html')">
+                <h2>Speedometer</h2>
+                <p>Measure your speed and view speed limits on map.</p>
+            </div>
+            <div class="option" onclick="navigateTo('traffic-camera.html')">
+                <h2>Traffic Camera</h2>
+                <p>Monitor traffic and receive warnings for overspeeding.</p>
+            </div>
+            <div class="option" onclick="navigateTo('smart-parking.html')">
+                <h2>Smart Parking</h2>
+                <p>Find available parking slots and navigate to them.</p>
+            </div>
+            <div class="option" onclick="navigateTo('traffic-light.html')">
+                <h2>Traffic Lights</h2>
+                <p>Manage traffic lights based on live traffic data.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Smart Traffic Management System</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

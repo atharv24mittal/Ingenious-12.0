@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traffic Signal</title>
+<style>
+  .container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .signal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .signal {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px;
+    border: 3px solid black;
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+  .red { background-color: red; }
+  .yellow { background-color: yellow; }
+  .green { background-color: green; }
+  .message {
+    font-weight: bold;
+    margin-top: 50px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Traffic Signal Control System</h1>
+    <div class="signal-container">
+      <div class="signal red" id="redSignal"></div>
+      <div class="signal yellow" id="yellowSignal"></div>
+      <div class="signal green" id="greenSignal"></div>
+    </div>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    // Function to update the traffic signal based on the active signal
+    function updateTrafficSignal(activeSignal) {
+      var signals = document.querySelectorAll(".signal");
+      signals.forEach(function(signal) {
+        signal.classList.remove("active");
+      });
+      document.getElementById(activeSignal).classList.add("active");
+    }
+
+    // Function to update the message based on the active signal
+    function updateMessage(activeSignal) {
+      var messageElement = document.getElementById("message");
+      switch (activeSignal) {
+        case "redSignal":
+          messageElement.textContent = "Stop! The signal is red.";
+          break;
+        case "yellowSignal":
+          messageElement.textContent = "Get ready! The signal is about to change.";
+          break;
+        case "greenSignal":
+          messageElement.textContent = "Go! The signal is green.";
+          break;
+        default:
+          messageElement.textContent = "";
+      }
+    }
+
+    // Function to simulate traffic signal changes every 5 seconds
+    function simulateTraffic() {
+      var signals = ["redSignal", "yellowSignal", "greenSignal"];
+      var currentIndex = 0;
+
+      setInterval(function() {
+        var activeSignal = signals[currentIndex];
+        updateTrafficSignal(activeSignal);
+        updateMessage(activeSignal);
+
+        currentIndex = (currentIndex + 1) % signals.length;
+      }, 5000);
+    }
+
+    simulateTraffic(); // Start simulating traffic
+  </script>
+</body>
+</html>
